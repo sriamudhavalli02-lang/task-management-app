@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./index.css";
-const API_URL = "http://localhost:5000";
+
+const API_URL = "https://task-management-app-zifo.onrender.com";
 
 function App() {
   const [token, setToken] = useState(
@@ -92,7 +93,7 @@ function App() {
     } catch {
       return {
         message: text.startsWith("<")
-          ? "Backend URL problem. Check localhost:5000."
+          ? "Backend URL problem. Check Render backend."
           : text || "Invalid server response",
       };
     }
@@ -908,8 +909,6 @@ function App() {
         id="dashboard"
       >
 
-        {/* HEADER */}
-
         <header className="top-header">
 
           <div className="header-left">
@@ -969,8 +968,6 @@ function App() {
 
             </div>
 
-            {/* UPDATED LOGOUT BUTTON */}
-
             <button
               type="button"
               className="mobile-logout"
@@ -982,8 +979,6 @@ function App() {
           </div>
 
         </header>
-
-        {/* HERO */}
 
         <section className="hero-card">
 
@@ -1036,8 +1031,6 @@ function App() {
           </div>
 
         </section>
-
-        {/* STATS */}
 
         <section
           className="stats-grid"
@@ -1101,8 +1094,6 @@ function App() {
           </div>
 
         </section>
-
-        {/* OVERVIEW + DISTRIBUTION */}
 
         <section className="analytics-grid">
 
@@ -1258,8 +1249,6 @@ function App() {
 
         </section>
 
-        {/* PRODUCTIVITY */}
-
         <section className="productivity-card">
 
           <div className="productivity-top">
@@ -1304,8 +1293,6 @@ function App() {
 
         </section>
 
-        {/* MESSAGE */}
-
         {message && (
           <div
             className={`message dashboard-message ${
@@ -1317,8 +1304,6 @@ function App() {
             {message}
           </div>
         )}
-
-        {/* TASKS */}
 
         <section
           className="tasks-section"
@@ -1346,9 +1331,7 @@ function App() {
               className="jump-create-btn"
               onClick={() =>
                 document
-                  .getElementById(
-                    "create-task"
-                  )
+                  .getElementById("create-task")
                   ?.scrollIntoView({
                     behavior: "smooth",
                   })
@@ -1358,8 +1341,6 @@ function App() {
             </button>
 
           </div>
-
-          {/* FILTERS */}
 
           <div className="filters">
 
@@ -1381,9 +1362,7 @@ function App() {
             <select
               value={statusFilter}
               onChange={(e) =>
-                setStatusFilter(
-                  e.target.value
-                )
+                setStatusFilter(e.target.value)
               }
             >
 
@@ -1434,8 +1413,6 @@ function App() {
 
           </div>
 
-          {/* TASK LIST */}
-
           <div className="task-list">
 
             {filteredTasks.length === 0 ? (
@@ -1460,9 +1437,7 @@ function App() {
                   className="empty-create-btn"
                   onClick={() =>
                     document
-                      .getElementById(
-                        "create-task"
-                      )
+                      .getElementById("create-task")
                       ?.scrollIntoView({
                         behavior: "smooth",
                       })
@@ -1590,9 +1565,7 @@ function App() {
                         type="button"
                         className="complete-btn"
                         onClick={() =>
-                          completeTask(
-                            task
-                          )
+                          completeTask(task)
                         }
                       >
                         ✓ Complete
@@ -1633,8 +1606,6 @@ function App() {
           </div>
 
         </section>
-
-        {/* CREATE TASK */}
 
         <section
           className="task-form-card"
@@ -1813,8 +1784,6 @@ function App() {
           </form>
 
         </section>
-
-        {/* FOOTER */}
 
         <footer className="footer">
 
